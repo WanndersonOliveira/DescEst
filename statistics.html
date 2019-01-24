@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Statistics</title>
+</head>
+<body>
+	<script type="text/javascript" src="statistics.js"></script>
+	<script type="text/javascript">
+		function submeter(){
+
+			var array = [];
+			var vetor = [];
+			data = document.getElementById("data").value;
+
+			array = data.split(" ");
+
+			document.write("<center><b>Estatística Descritiva</b></center><br><br>");
+
+			document.write("Dados brutos:<br>"+array);
+
+			new Promise((resolve, reject) => {
+				console.log("Inicio");
+				resolve();
+			})
+			.then(() =>{
+				vetor = processaArray(array);
+				document.write("<br>Dados ordenados:<br>"+array);
+			})
+			.then(()=>{
+				document.write("<br>Média:<br>"+media(vetor));
+			})
+			.then(()=>{
+				console.log("Processando mediana...");
+				document.write("<br>Mediana:<br>"+mediana(vetor));
+			})
+			.then(()=>{
+				document.write("<br>Moda:<br>"+moda(vetor));
+			})
+			.catch(() => {
+				console.log("Um erro ocorreu");
+			});
+			
+		}
+	</script>
+
+	<textarea placeholder="Digite os seus dados aqui..." id="data" cols="30"
+	rows="10">
+	</textarea>
+	<br>
+	<button onclick="submeter()">Enviar</button>
+
+</body>
+</html>
