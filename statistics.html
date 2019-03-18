@@ -25,7 +25,7 @@
 			})
 			.then(() =>{
 				vetor = processaArray(array);
-				document.write("<br>Dados ordenados:<br>"+array);
+				document.write("<br>Dados ordenados:<br>"+vetor);
 			})
 			.then(()=>{
 				document.write("<br>Média:<br>"+media(vetor));
@@ -36,6 +36,9 @@
 			})
 			.then(()=>{
 				document.write("<br>Moda:<br>"+moda(vetor));
+			})
+			.then(()=>{
+				variancia(vetor, media(vetor));
 			})
 			.catch(() => {
 				console.log("Um erro ocorreu");
