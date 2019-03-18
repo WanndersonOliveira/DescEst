@@ -72,3 +72,72 @@ function moda(vetor){
 
 	return md;
 }
+
+function variancia(vetor, media){
+	var X = media;   //Média
+	var v = 0;   //Variância
+
+	new Promise((resolve, reject) =>{
+		console.log("Início do processamento da variância");
+		resolve();
+	})
+	.then(()=>{
+		//X = media(vetor);
+		console.log("Média: "+X);
+	})
+	.then(()=>{
+		for(var i = 0; i < vetor.length; i++){
+			v = v + Math.pow((vetor[i] - X), 2);
+			v = v/vetor.length;
+		}
+	})
+	.then(()=>{
+		console.log("Fim do processamento da variância");
+		document.write("<br>Variância: <br>"+v);
+		document.write("<br>Desvio Padrão: <br>"+desvioPadrao(v));
+	})
+	.catch(()=>{
+		console.log("Um erro ocorreu!");
+	});
+}
+
+function desvioPadrao(variancia){
+	return Math.sqrt(variancia);
+}
+
+function primeiroQuartil(vetor){
+	var tamanho = vetor.length;
+
+	var quartil = tamanho/4;
+
+	if(typeof(quartil) != "int"){
+		quartil = parseInt(quartil);
+		quartil++;
+	}
+
+	return quartil;
+}
+
+function terceiroQuartil(vetor){
+	var tamanho = vetor.length;
+
+	var quartil = (tamanho*3)/4;
+
+	if(typeof(quartil) != "int"){
+		quartil = parseInt(quartil);
+		quartil++;
+	}
+
+	return quartil;
+}
+
+
+		for(var i = 0; i < maiorFreq.length; i++){
+			md = md+maiorFreq[i];
+		}
+
+		md = md/(maiorFreq.length);
+	}
+
+	return md;
+}
